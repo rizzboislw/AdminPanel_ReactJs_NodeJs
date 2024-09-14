@@ -1,9 +1,20 @@
-import Navbar from "../../../components/navbar";
+import {
+  Navbar,
+  PageLayout,
+  DashboardHeader,
+  DashboardFilterSection,
+  DashboardMainSection,
+} from "../index";
 
 function Homepage() {
   return (
-    <div>
+    <div className="w-full h-screen bg-white flex flex-col justify-center items-center">
       <Navbar />
+      <PageLayout>
+        <DashboardHeader />
+        <DashboardFilterSection />
+        <DashboardMainSection />
+      </PageLayout>
     </div>
   );
 }
