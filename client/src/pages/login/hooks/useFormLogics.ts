@@ -15,10 +15,6 @@ export function useForm() {
     password: "",
   });
 
-  const [checkboxStatus, setcheckboxStatus] = useState<Checkbox>({
-    showPassword: false,
-  });
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputData((prev) => ({
       ...prev,
@@ -26,19 +22,21 @@ export function useForm() {
     }));
   };
 
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setcheckboxStatus({ showPassword: event.target.checked });
-  };
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
-  return {
-    inputData,
-    checkboxStatus,
-    handleChange,
-    handleCheckboxChange,
-    handleSubmit,
+  return { inputData, handleChange, handleSubmit };
+}
+
+export function useCheckbox() {
+  const [checkboxStatus, setcheckboxStatus] = useState<Checkbox>({
+    showPassword: false,
+  });
+
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setcheckboxStatus({ showPassword: event.target.checked });
   };
+
+  return { checkboxStatus, handleCheckboxChange };
 }

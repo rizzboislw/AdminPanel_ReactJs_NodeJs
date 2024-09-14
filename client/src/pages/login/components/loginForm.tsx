@@ -1,14 +1,9 @@
-import InputTemplate from "../../../components/inputTemplate";
-import { useForm } from "../hooks/useForm";
+import InputTemplate from "./inputTemplate";
+import { useForm, useCheckbox } from "../hooks/useFormLogics";
 
 function LoginForm() {
-  const {
-    inputData,
-    checkboxStatus,
-    handleChange,
-    handleCheckboxChange,
-    handleSubmit,
-  } = useForm();
+  const { inputData, handleChange, handleSubmit } = useForm();
+  const { checkboxStatus, handleCheckboxChange } = useCheckbox();
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
