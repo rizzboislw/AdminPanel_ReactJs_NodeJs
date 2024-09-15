@@ -1,4 +1,5 @@
 import React from "react";
+import { Input } from "@chakra-ui/react";
 
 interface InputTemplateProps {
   name: string;
@@ -24,15 +25,15 @@ const InputTemplate: React.FC<InputTemplateProps> = ({
   return (
     <label htmlFor={htmlfor} className="flex flex-col gap-2 font-Montserrat">
       <p className="px-2 font-semibold text-black">{labelText}</p>
-      <input
+      <Input
+        variant="filled"
         type={inputType}
         value={value}
         onChange={onChange}
         placeholder={placeholderText}
         required={required}
         name={name}
-        className="input input-bordered input-primary w-full bg-white text-black font-medium"
-      ></input>
+      ></Input>
     </label>
   );
 };
