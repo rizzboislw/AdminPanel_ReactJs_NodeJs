@@ -17,12 +17,12 @@ function UserDisplaySection() {
   return (
     <div className="w-full h-max flex flex-col gap-4 mb-4">
       <div className="flex justify-between">
-        <h3 className="text-2xl font-semibold flex items-center">
+        <h3 className="text-2xl font-semibold flex items-center text-gray-500">
           SHOWING: {userData.length}
         </h3>
-        <div className="border-2">
+        <div>
           <Menu closeOnSelect={false} placement="bottom">
-            <MenuButton as={Button} colorScheme="blue">
+            <MenuButton as={Button} bgColor="#055894">
               <img src={viewIcon} alt="grid-view" />
             </MenuButton>
             <MenuList minWidth="30px">
