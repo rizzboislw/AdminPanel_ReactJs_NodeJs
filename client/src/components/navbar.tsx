@@ -1,5 +1,6 @@
 import { adminFontGradient } from "../styles/theme";
 import NavbarDrawer from "./drawer";
+import { default as logoutIcon } from "../assets/svg/logout.svg";
 
 function Navbar() {
   return (
@@ -12,7 +13,15 @@ function Navbar() {
           ADMIN PANEL
         </div>
         <div className="font-Montserrat text-sm font-semibold text-black flex gap-2">
-          <NavbarDrawer />
+          <div className="sm:hidden">
+            <NavbarDrawer />
+          </div>
+          <div className="hidden sm:block">
+            <button className="flex gap-1">
+              <img src={logoutIcon} alt="logout-icon" />
+              <p className="text-[#055894]">Logout</p>
+            </button>
+          </div>
         </div>
       </div>
     </nav>

@@ -12,7 +12,7 @@ function LoginContainer() {
           className="text-3xl font-extrabold login-gradient tracking-[0.15px]"
           style={loginPageFontgradient}
         >
-          Welcome!
+          ADMIN PANEL
         </h1>
         <h2 className="text-xl font-medium text-gray-700 ">Login</h2>
       </div>
