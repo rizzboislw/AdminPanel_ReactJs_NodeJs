@@ -1,9 +1,14 @@
 function DashboardHeader() {
   return (
-    <div className="w-full h-[100px] bg-red-400">
-      <div className="flex flex-col font-Montserrat text-black justify-around items-center h-full ">
-        <h2 className="text-2xl font-semibold">Good Afternoon, Admin</h2>
-        <h1 className="text-lg font-medium">User Management</h1>
+    <div className="w-full h-max flex flex-col">
+      <div className="flex flex-col font-Montserrat text-black justify-around items-center sm:items-start h-full gap-3 ">
+        <h2 className="text-3xl sm:text-5xl font-bold text-gray-600 h-max">
+          DASHBOARD
+        </h2>
+
+        <h2 className="text-md sm:text-xl font-semibold text-gray-600">
+          Good Afternoon, Admin
+        </h2>
       </div>
     </div>
   );
