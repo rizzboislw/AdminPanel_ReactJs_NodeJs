@@ -3,30 +3,25 @@ import { users } from "../utils/db";
 
 const userRouter = Router();
 
-userRouter.get("/", (req: Request, res: Response) => {
-  if (users.length === 0) {
-    res.status(400).json({ messsage: "There's currently no active users " });
-  }
-  res.status(200).json({ users });
-});
-
 userRouter.get("/find", (req: Request, res: Response) => {
-  const nameKeyword = req.query.name as string;
-  const ageRange = req.query.age as string;
+  const nameKeyword = (req.query.name as string) || "";
+  const ageRange = (req.query.age as string) || "";
+  const order = (req.query.order as string) || "";
+  const gender = (req.query.gender as string) || "";
 
   const lowerCaseKeyword = nameKeyword.toLowerCase();
 
   let minAge: number | null = null;
   let maxAge: number | null = null;
 
-  if (ageRange.includes(":")) {
+  if (ageRange && ageRange.includes(":")) {
     const [min, max] = ageRange.split(":").map(Number);
 
     minAge = !isNaN(min) ? min : null;
     maxAge = !isNaN(max) ? max : null;
   }
 
-  const foundUsers = users.filter((user) => {
+  let foundUsers = users.filter((user) => {
     const foundNames =
       user.name.toLowerCase().includes(lowerCaseKeyword) ||
       user.username.toLowerCase().includes(lowerCaseKeyword) ||
@@ -38,6 +33,20 @@ userRouter.get("/find", (req: Request, res: Response) => {
 
     return foundNames && foundAges;
   });
+
+  if (gender && gender !== "all") {
+    foundUsers = foundUsers.filter(
+      (user) => user.gender.toLocaleLowerCase() === gender
+    );
+  }
+
+  if (order) {
+    if (order === "asc") {
+      foundUsers.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (order === "desc") {
+      foundUsers.sort((a, b) => b.name.localeCompare(a.name));
+    }
+  }
 
   return res.status(200).json({ users: foundUsers });
 });
