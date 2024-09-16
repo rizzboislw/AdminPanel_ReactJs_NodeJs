@@ -13,6 +13,9 @@ interface User {
   id: number;
   name: string;
   username: string;
+  age: string;
+  gender: string;
+  email: string;
 }
 
 interface FilterContextType {
@@ -52,6 +55,7 @@ export const FilterProvider = ({ children }: { children: ReactNode }) => {
   const handleGenderChange = (gender: string) => {
     setSortType((prev) => ({ ...prev, gender }));
   };
+
   const handleAgeChange = (age: number[]) => {
     setSortType((prev) => ({ ...prev, age }));
   };

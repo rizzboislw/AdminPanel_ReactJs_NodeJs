@@ -3,7 +3,6 @@ import {
   PopoverTrigger,
   PopoverContent,
   PopoverBody,
-  PopoverCloseButton,
   Button,
   RangeSlider,
   RangeSliderTrack,
@@ -21,7 +20,7 @@ function AgeRangeSlider() {
   };
 
   return (
-    <Box>
+    <Box w="full">
       <Box mb={2}>
         <span className="font-semibold">
           Selected Age Range: {age[0]} - {age[1]}
@@ -46,15 +45,14 @@ function AgeRangeSlider() {
 
 function FilterByAges() {
   return (
-    <Popover isLazy placement="bottom-start">
+    <Popover isLazy placement="bottom">
       <PopoverTrigger>
-        <Button w="full" bgColor="#374151">
+        <Button w="full" bgColor="#055894">
           <span className="text-sm text-white ">Age</span>
         </Button>
       </PopoverTrigger>
-      <PopoverContent>
-        <PopoverCloseButton />
-        <PopoverBody>
+      <PopoverContent w="full">
+        <PopoverBody w="full">
           <AgeRangeSlider />
         </PopoverBody>
       </PopoverContent>

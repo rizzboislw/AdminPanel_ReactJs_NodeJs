@@ -12,11 +12,11 @@ function FilterOrder() {
   const { order, handleOrderChange } = useFilter();
 
   return (
-    <Menu closeOnSelect={false}>
-      <MenuButton as={Button} bgColor="#374151" w="full">
+    <Menu closeOnSelect={false} isLazy placement="bottom-start">
+      <MenuButton as={Button} bgColor="#055894" w="full">
         <span className="text-sm text-white">Order</span>
       </MenuButton>
-      <MenuList minWidth="240px">
+      <MenuList minWidth="150px">
         <MenuOptionGroup value={order} title="Alphabetical Order" type="radio">
           <MenuItemOption value="asc" onClick={() => handleOrderChange("asc")}>
             Ascending (A - Z)

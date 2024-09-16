@@ -12,11 +12,11 @@ function FilterByGender() {
   const { gender, handleGenderChange } = useFilter();
 
   return (
-    <Menu closeOnSelect={false}>
-      <MenuButton as={Button} bgColor="#374151" w="full">
+    <Menu closeOnSelect={false} placement="bottom-start">
+      <MenuButton as={Button} bgColor="#055894" w="full">
         <span className="text-sm text-white ">Gender</span>
       </MenuButton>
-      <MenuList minWidth="240px">
+      <MenuList minWidth="150px">
         <MenuOptionGroup defaultValue={gender} title="Gender" type="radio">
           <MenuItemOption
             value="all"
