@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { users } from "../utils/db";
+import { users, UserWithoutPassword } from "../utils/db";
 
 const userRouter = Router();
 
@@ -48,7 +48,11 @@ userRouter.get("/find", (req: Request, res: Response) => {
     }
   }
 
-  return res.status(200).json({ users: foundUsers });
+  const filteredUser: UserWithoutPassword[] = foundUsers
+    .filter((user) => user.role === "user")
+    .map(({ password, ...rest }) => rest);
+
+  return res.status(200).json({ users: filteredUser });
 });
 
 userRouter.get("/u/:username", (req: Request, res: Response) => {
