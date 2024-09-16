@@ -4,11 +4,11 @@ import {
   DashboardHeader,
   UserManagementContainer,
 } from "../index";
-import { NameFilterProvider } from "../hooks/useNameFilter";
+import { FilterProvider } from "../hooks/useDataFetch";
 
 function Homepage() {
   return (
-    <NameFilterProvider>
+    <FilterProvider>
       <div className="w-full bg-white flex flex-col justify-center items-center gap-8">
         <Navbar />
         <PageLayout>
@@ -18,7 +18,7 @@ function Homepage() {
           </div>
         </PageLayout>
       </div>
-    </NameFilterProvider>
+    </FilterProvider>
   );
 }
 

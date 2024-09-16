@@ -1,9 +1,9 @@
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { default as searchIcon } from "../../../../../assets/svg/search.svg";
-import { useNameFilter } from "../../../hooks/useNameFilter";
+import { useFilter } from "../../../hooks/useDataFetch";
 
 function FilterByName() {
-  const { nameKeyword, handleKeywordChange } = useNameFilter();
+  const { keyword, handleKeywordChange } = useFilter();
 
   return (
     <div className="w-full text-gray-600 ">
@@ -16,7 +16,7 @@ function FilterByName() {
           placeholder="Enter name or username"
           bg="white"
           fontSize={14}
-          value={nameKeyword}
+          value={keyword}
           onChange={handleKeywordChange}
         />
       </InputGroup>

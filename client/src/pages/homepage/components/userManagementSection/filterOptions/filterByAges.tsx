@@ -11,24 +11,24 @@ import {
   RangeSliderThumb,
   Box,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useFilter } from "../../../hooks/useDataFetch";
 
 function AgeRangeSlider() {
-  const [ageRange, setAgeRange] = useState([0, 100]);
+  const { age, handleAgeChange } = useFilter();
 
   const handleSliderChange = (values: number[]) => {
-    setAgeRange(values);
+    handleAgeChange(values);
   };
 
   return (
     <Box>
       <Box mb={2}>
         <span className="font-semibold">
-          Selected Age Range: {ageRange[0]} - {ageRange[1]}
+          Selected Age Range: {age[0]} - {age[1]}
         </span>
       </Box>
       <RangeSlider
-        defaultValue={[0, 100]}
+        defaultValue={age}
         min={0}
         max={100}
         step={1}
