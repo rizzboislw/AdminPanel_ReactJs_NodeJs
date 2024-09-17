@@ -1,7 +1,10 @@
 import { Router, Request, Response } from "express";
 import { users, UserWithoutPassword } from "../utils/db";
+import { protect } from "../middlewares/protect";
 
 const userRouter = Router();
+
+userRouter.use(protect);
 
 userRouter.get("/find", (req: Request, res: Response) => {
   const nameKeyword = (req.query.name as string) || "";
@@ -66,7 +69,11 @@ userRouter.get("/u/:username", (req: Request, res: Response) => {
     return res.status(404).json({ message: "User not found" });
   }
 
-  return res.status(200).json({ user: filteredUser });
+  const foundUser: UserWithoutPassword = (({ password, ...rest }) => rest)(
+    filteredUser
+  );
+
+  return res.status(200).json({ user: foundUser });
 });
 
 export default userRouter;
