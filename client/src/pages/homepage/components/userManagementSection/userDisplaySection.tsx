@@ -61,36 +61,42 @@ function UserDisplaySection() {
             : "w-full gap-4 flex flex-col"
         }
       >
-        {userData.map((user, index) => (
-          <div
-            key={user.id}
-            className="w-full h-max  flex flex-col items-start rounded-xl text-sm shadow-[0px_5px_15px_rgba(0,0,0,0.35)] p-4 bg-[#ffffff] text-[#055894] gap-1 hover:translate-y-[-5px] duration-200 hover:cursor-pointer"
-            onClick={() => {
-              redirect(`/u/${user.username}`);
-            }}
-          >
-            <p>{index + 1}</p>
-            <p className="font-semibold">
-              Username: <span className="font-normal">{user.username}</span>
-            </p>
-            <p className="font-semibold">
-              Name:
-              <span className="font-normal"> {user.name}</span>
-            </p>
-            <p className="font-semibold">
-              Age:
-              <span className="font-normal"> {user.age}</span>
-            </p>
-            <p className="font-semibold">
-              Gender:
-              <span className="font-normal"> {user.gender}</span>
-            </p>
-            <p className="font-semibold">
-              Email:
-              <span className="font-normal"> {user.email}</span>
-            </p>
-          </div>
-        ))}
+        {userData.length === 0 ? (
+          <h3 className="text-xl text-bold flex item-center w-full ">
+            Loading...
+          </h3>
+        ) : (
+          userData.map((user, index) => (
+            <div
+              key={user.id}
+              className="w-full h-max  flex flex-col items-start rounded-xl text-sm shadow-[0px_5px_15px_rgba(0,0,0,0.35)] p-4 bg-[#ffffff] text-[#055894] gap-1 hover:translate-y-[-5px] duration-200 hover:cursor-pointer"
+              onClick={() => {
+                redirect(`/u/${user.username}`);
+              }}
+            >
+              <p>{index + 1}</p>
+              <p className="font-semibold">
+                Username: <span className="font-normal">{user.username}</span>
+              </p>
+              <p className="font-semibold">
+                Name:
+                <span className="font-normal"> {user.name}</span>
+              </p>
+              <p className="font-semibold">
+                Age:
+                <span className="font-normal"> {user.age}</span>
+              </p>
+              <p className="font-semibold">
+                Gender:
+                <span className="font-normal"> {user.gender}</span>
+              </p>
+              <p className="font-semibold">
+                Email:
+                <span className="font-normal"> {user.email}</span>
+              </p>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
