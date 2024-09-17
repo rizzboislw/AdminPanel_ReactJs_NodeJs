@@ -1,9 +1,16 @@
 import InputTemplate from "./inputTemplate";
-import { useForm, useCheckbox } from "../hooks/useFormLogics";
+import { useForm, useCheckbox } from "../context/useFormLogics";
+import { useAuth } from "../../../contexts/authentication";
 
 function LoginForm() {
-  const { inputData, handleChange, handleSubmit } = useForm();
+  const { inputData, handleChange } = useForm();
   const { checkboxStatus, handleCheckboxChange } = useCheckbox();
+  const { login } = useAuth();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    login(inputData);
+  };
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>

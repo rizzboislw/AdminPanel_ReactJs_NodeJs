@@ -22,11 +22,7 @@ export function useForm() {
     }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
-
-  return { inputData, handleChange, handleSubmit };
+  return { inputData, handleChange };
 }
 
 export function useCheckbox() {
