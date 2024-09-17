@@ -32,7 +32,7 @@ A demo project for an admin panel built with TypeScript and React. This project 
 1. **Login Page**: 
    - Authentication interface.
 2. **Homepage (Dashboard)**: 
-   - Main dashboard showing the list of entries and navigation.
+   - Main dashboard showing the list of users.
 3. **User Page**: 
    - Detailed view of a specific user’s information.
 
