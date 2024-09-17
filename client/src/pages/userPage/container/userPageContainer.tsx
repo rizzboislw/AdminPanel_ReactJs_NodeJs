@@ -1,7 +1,7 @@
 import Navbar from "../../../components/navbar";
 import PageLayout from "../../../components/pageLayout";
 import { UserProfile } from "..";
-import { UserInfoProvider } from "../context/useUserInfo";
+import { UserInfoProvider } from "../hooks/useUserInfo";
 
 function UserPage() {
   return (

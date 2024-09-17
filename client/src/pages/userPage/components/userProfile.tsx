@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { default as leftArrow } from "../../../assets/svg/arrow.svg";
-import { useUserInfo } from "../context/useUserInfo";
+import { useUserInfo } from "../hooks/useUserInfo";
 import { useEffect } from "react";
 import { default as personIcon } from "../../../assets/svg/person.svg";
 
