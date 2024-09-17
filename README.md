@@ -5,9 +5,9 @@ A demo project for an admin panel built with TypeScript and React. This project 
 ## Stacks Used
 
 - **TypeScript**
-- **React (TypeScript)**
-- **Node.js (TypeScript)**
-- **Express (TypeScript)**
+- **React (with TypeScript)**
+- **Node.js (with TypeScript)**
+- **Express (with TypeScript)**
 - **TailwindCSS**
 - **ChakraUI**
 
@@ -49,14 +49,14 @@ To get started with this project, follow these steps:
 2. **Include your `.env` file in the server directory**
 
    - Ensure you have a `.env` file in the `server` directory.
-   - A `.env` file should include your secret key:
+   - The `.env` file should include your secret key:
 
    ```bash
    SECRET_KEY=[your_secret_key]
    ```
 
    *Here's how to generate your secret key:*
-   - Open your CLI
+   - Open your command line interface.
    - Enter the following command to generate a base64 encoded secret key:
 
    ```bash
@@ -78,7 +78,7 @@ To get started with this project, follow these steps:
    Navigate to the `client` directory, install dependencies, and start the client:
 
    ```bash
-   cd client
+   cd ../client
    npm install
    npm run dev
    ```
@@ -87,3 +87,18 @@ To get started with this project, follow these steps:
 
    Open your browser and go to `http://localhost:[given port]` for the client website.
 
+## Admin Credentials
+
+Here are the admin credentials for logging into the application:
+
+1. **Admin One**
+   - **ID**: adminuser1 
+   - **Password**: adminpassword1
+
+2. **Admin Two**
+   - **ID**: adminuser2
+   - **Password**: adminpassword2
+
+3. **Admin Three**
+   - **ID**: adminuser3 
+   - **Password**: adminpassword3
