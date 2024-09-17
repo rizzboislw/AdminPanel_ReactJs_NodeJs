@@ -27,6 +27,7 @@ function LoginForm() {
         placeholderText="Enter Username"
         required={true}
         id="username"
+        autoComplete="true"
       />
       <InputTemplate
         name="password"
@@ -45,6 +46,7 @@ function LoginForm() {
           checked={checkboxStatus.showPassword}
           onChange={handleCheckboxChange}
           className="w-4 h-4 "
+          id="show-password"
         />
         <p>Show Password</p>
       </label>

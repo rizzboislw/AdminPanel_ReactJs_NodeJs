@@ -11,6 +11,7 @@ interface InputTemplateProps {
   placeholderText: string;
   required?: boolean;
   id: string;
+  autoComplete?: "true" | "false";
 }
 
 const InputTemplate: React.FC<InputTemplateProps> = ({
@@ -23,6 +24,7 @@ const InputTemplate: React.FC<InputTemplateProps> = ({
   placeholderText,
   required = false,
   id,
+  autoComplete,
 }) => {
   return (
     <label htmlFor={htmlfor} className="flex flex-col gap-2 font-Montserrat">
@@ -36,6 +38,7 @@ const InputTemplate: React.FC<InputTemplateProps> = ({
         required={required}
         name={name}
         id={id}
+        auto-complete={autoComplete}
       ></Input>
     </label>
   );
