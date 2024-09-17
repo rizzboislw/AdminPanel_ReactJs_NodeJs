@@ -56,7 +56,7 @@ To get started with this project, follow these steps:
    ```
 
    *Here's how to generate your secret key:*
-   - Open your command line interface.
+   - Open your CLI.
    - Enter the following command to generate a base64 encoded secret key:
 
    ```bash
