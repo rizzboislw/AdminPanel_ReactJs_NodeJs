@@ -21,6 +21,8 @@ A demo project for an admin panel built with TypeScript and React. This project 
    - Search and filter entries (users) including alphabetical order sorting, age, and gender filtering.
 4. **User Details**: 
    - Render detailed information for specific users.
+5. **Responsive Design**:
+   - Designed for desktop, tablet, and mobile screen layout 
 
 ## Database
 
