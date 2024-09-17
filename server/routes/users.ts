@@ -1,10 +1,7 @@
 import { Router, Request, Response } from "express";
 import { users, UserWithoutPassword } from "../utils/db";
-import { protect } from "../middlewares/protect";
 
 const userRouter = Router();
-
-userRouter.use(protect);
 
 userRouter.get("/find", (req: Request, res: Response) => {
   const nameKeyword = (req.query.name as string) || "";
