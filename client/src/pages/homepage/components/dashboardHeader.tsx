@@ -1,4 +1,8 @@
+import { useDashboardInfo } from "../../../hooks/useDashboardInfo";
+
 function DashboardHeader() {
+  const { greeting, currentName } = useDashboardInfo();
+
   return (
     <div className="w-full h-max flex flex-col">
       <div className="flex flex-col font-Montserrat text-black justify-around items-center sm:items-start h-full gap-3 ">
@@ -7,7 +11,7 @@ function DashboardHeader() {
         </h2>
 
         <h2 className="text-md sm:text-xl font-semibold text-gray-600">
-          Good Afternoon, Admin
+          {greeting}, {currentName}
         </h2>
       </div>
     </div>

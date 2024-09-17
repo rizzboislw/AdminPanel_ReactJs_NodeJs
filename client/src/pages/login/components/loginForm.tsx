@@ -1,5 +1,5 @@
 import InputTemplate from "./inputTemplate";
-import { useForm, useCheckbox } from "../context/useFormLogics";
+import { useForm, useCheckbox } from "../hooks/useFormLogics";
 import { useAuth } from "../../../contexts/authentication";
 
 function LoginForm() {

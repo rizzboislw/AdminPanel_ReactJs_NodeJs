@@ -1,23 +1,11 @@
 import "./App.css";
-import { ChakraProvider } from "@chakra-ui/react";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
-import { LoginPage } from "./pages/login";
-import { Homepage } from "./pages/homepage";
-import { AuthProvider } from "./contexts/authentication";
+import { useAuth } from "./contexts/authentication";
+import AuthenticatedApp from "./pages/authenticated";
+import UnauthenticatedApp from "./pages/unauthenticated";
 
 function App() {
-  return (
-    <ChakraProvider>
-      <BrowserRouter>
-        <AuthProvider>
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-        </AuthProvider>
-      </BrowserRouter>
-    </ChakraProvider>
-  );
+  const auth = useAuth();
+  return auth.isAuthenticated ? <AuthenticatedApp /> : <UnauthenticatedApp />;
 }
 
 export default App;

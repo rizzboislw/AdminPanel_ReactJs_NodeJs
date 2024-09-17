@@ -13,10 +13,14 @@ import {
 } from "@chakra-ui/react";
 import { default as logoutIcon } from "../assets/svg/logout.svg";
 import { default as menuIcon } from "../assets/svg/menu.svg";
+import { useAuth } from "../contexts/authentication";
+import { useDashboardInfo } from "../hooks/useDashboardInfo";
 
 function NavbarDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef<HTMLButtonElement>(null);
+  const { logout } = useAuth();
+  const { username } = useDashboardInfo();
 
   return (
     <>
@@ -39,15 +43,20 @@ function NavbarDrawer() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>admin username</DrawerHeader>
+          <DrawerHeader>{username}</DrawerHeader>
 
           <Divider />
 
           <DrawerBody></DrawerBody>
 
-          <DrawerFooter display="flex" justifyContent="start">
-            <img src={logoutIcon} alt="logout-icon" />
-            <p>Logout</p>
+          <DrawerFooter justifyContent="start">
+            <div
+              onClick={logout}
+              className="hover:cursor-pointer flex gap-1 hover:scale-105 duration-200"
+            >
+              <img src={logoutIcon} alt="logout-icon" onClick={logout} />
+              <p className="text-[#055894] font-semibold">Logout</p>
+            </div>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

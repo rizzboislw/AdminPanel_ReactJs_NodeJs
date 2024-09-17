@@ -15,6 +15,8 @@ interface UserStatus {
 }
 interface AuthContextType {
   login: (data: {}) => Promise<void>;
+  logout: () => void;
+  isAuthenticated: boolean;
   user: DecodedUser | null;
   loading: string | null;
 }
@@ -37,6 +39,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       const token = result.data.token;
       localStorage.setItem("token", token);
       const userData: DecodedUser = jwtDecode(token);
+      localStorage.setItem("user", JSON.stringify(userData));
       setUserState({ ...userState, user: userData, loading: null });
       navigate("/");
     } catch (error) {
@@ -44,9 +47,24 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUserState({ ...userState, user: null });
+    window.location.reload();
+  };
+
+  const isAuthenticated = Boolean(localStorage.getItem("token"));
+
   return (
     <AuthContext.Provider
-      value={{ login, user: userState.user, loading: userState.loading }}
+      value={{
+        login,
+        user: userState.user,
+        loading: userState.loading,
+        logout,
+        isAuthenticated,
+      }}
     >
       {children}
     </AuthContext.Provider>
