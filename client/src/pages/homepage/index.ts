@@ -12,3 +12,5 @@ export { default as FilterOrder } from "./components/userManagementSection/filte
 export { default as FilterByGender } from "./components/userManagementSection/filterOptions/filterByGender";
 
 export { default as Homepage } from "./container/homepage";
+
+//Export all component here for a clean imports

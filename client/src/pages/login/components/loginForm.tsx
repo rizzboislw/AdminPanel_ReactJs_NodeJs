@@ -5,7 +5,7 @@ import { useAuth } from "../../../contexts/authentication";
 function LoginForm() {
   const { inputData, handleChange } = useForm();
   const { checkboxStatus, handleCheckboxChange } = useCheckbox();
-  const { login } = useAuth();
+  const { login, loading, error } = useAuth();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -14,6 +14,9 @@ function LoginForm() {
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+      <span className="text-md text-red-600 w-full text-center">
+        {loading ? loading : error ? error : null}
+      </span>
       <InputTemplate
         name="username"
         value={inputData.username}
@@ -23,6 +26,7 @@ function LoginForm() {
         inputType="text"
         placeholderText="Enter Username"
         required={true}
+        id="username"
       />
       <InputTemplate
         name="password"
@@ -33,6 +37,7 @@ function LoginForm() {
         inputType={checkboxStatus.showPassword ? "text" : "password"}
         placeholderText="Enter Password"
         required={true}
+        id="password"
       />
       <label className="px-2 font-Montserrat font-medium flex gap-2 items-center">
         <input

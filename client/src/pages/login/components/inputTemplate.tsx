@@ -10,6 +10,7 @@ interface InputTemplateProps {
   inputType: string;
   placeholderText: string;
   required?: boolean;
+  id: string;
 }
 
 const InputTemplate: React.FC<InputTemplateProps> = ({
@@ -21,6 +22,7 @@ const InputTemplate: React.FC<InputTemplateProps> = ({
   inputType,
   placeholderText,
   required = false,
+  id,
 }) => {
   return (
     <label htmlFor={htmlfor} className="flex flex-col gap-2 font-Montserrat">
@@ -33,6 +35,7 @@ const InputTemplate: React.FC<InputTemplateProps> = ({
         placeholder={placeholderText}
         required={required}
         name={name}
+        id={id}
       ></Input>
     </label>
   );

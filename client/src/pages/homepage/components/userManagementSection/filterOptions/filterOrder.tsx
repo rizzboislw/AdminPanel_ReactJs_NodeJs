@@ -9,6 +9,7 @@ import {
 import { useFilter } from "../../../hooks/useDataFetch";
 
 function FilterOrder() {
+  //access the hook and state to send and receive the value
   const { order, handleOrderChange } = useFilter();
 
   return (

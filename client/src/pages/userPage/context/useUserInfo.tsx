@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from "react";
 import axios from "axios";
 
-// Define the User interface
+// Define the structure of user information received from the database
 interface User {
   id: number;
   username: string;
@@ -16,6 +16,7 @@ interface User {
   registerDate: string;
 }
 
+//Define the types and method of user information state and data fetching function
 interface UserInfoContextType {
   userInfo: User | null;
   getUserInfo: (username: string) => Promise<void>;
@@ -31,10 +32,10 @@ const UserInfoProvider = ({ children }: { children: ReactNode }) => {
   const getUserInfo = async (username: string) => {
     try {
       const result = await axios.get(
-        `http://localhost:4001/users/u/${username}`
+        `http://localhost:4001/users/u/${username}` //Call an API with username fetched from the user page as query parameter
       );
 
-      setUserInfo(result.data.user);
+      setUserInfo(result.data.user); // Get personal data for a specific user
     } catch (error) {
       console.error("Failed to fetch user infomation:", error);
     }

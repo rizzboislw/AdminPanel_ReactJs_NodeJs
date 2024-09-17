@@ -9,6 +9,7 @@ import {
 import { useFilter } from "../../../hooks/useDataFetch";
 
 function FilterByGender() {
+  //access the hook and state to send and receive the value
   const { gender, handleGenderChange } = useFilter();
 
   return (

@@ -12,9 +12,12 @@ import { default as viewIcon } from "../../../../assets/svg/view.svg";
 import { useNavigate } from "react-router-dom";
 
 function UserDisplaySection() {
+  // access the data received from API fetching
   const { userData } = useFilter();
+  // delcare the state and set the default view as grid view
   const [currentView, setCurrentView] = useState("grid");
 
+  // use redirection, to allow user to click an item and redirecting them to a specificly rendered page
   const redirect = useNavigate();
 
   return (

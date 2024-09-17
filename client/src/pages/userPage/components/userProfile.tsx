@@ -5,10 +5,11 @@ import { useEffect } from "react";
 import { default as personIcon } from "../../../assets/svg/person.svg";
 
 function UserProfile() {
-  const redirect = useNavigate();
-  const { username } = useParams<{ username: string }>();
+  const redirect = useNavigate(); // access navigate for a button redirect user back to dashbaord page
+  const { username } = useParams<{ username: string }>(); // fetch username from parameter
   const { userInfo, getUserInfo } = useUserInfo();
 
+  // Send the fetched username as arguement for a hook to fetch specific user information
   useEffect(() => {
     if (username) {
       getUserInfo(username);

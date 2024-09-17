@@ -13,8 +13,10 @@ import {
 import { useFilter } from "../../../hooks/useDataFetch";
 
 function AgeRangeSlider() {
+  //access the hook and state to send and receive the value
   const { age, handleAgeChange } = useFilter();
 
+  //handle the value when changed
   const handleSliderChange = (values: number[]) => {
     handleAgeChange(values);
   };

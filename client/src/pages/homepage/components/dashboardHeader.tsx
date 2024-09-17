@@ -1,6 +1,7 @@
 import { useDashboardInfo } from "../../../hooks/useDashboardInfo";
 
 function DashboardHeader() {
+  // access name and greeting to render the correct ones
   const { greeting, currentName } = useDashboardInfo();
 
   return (
